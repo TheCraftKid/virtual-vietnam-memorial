@@ -7,15 +7,23 @@
     "email": "willieechalmers@gmail.com"
   },
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheCraftKid/virtual-vietnam-memorial"
+  },
   "scripts": {
     "start": "npm run serve",
+    "deploy": "gcloud app deploy",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "express": "^4.16.3",
+    "firebase": "^4.12.1",
     "register-service-worker": "^1.0.0",
     "vue": "^2.5.13",
+    "vue-material": "^1.0.0-beta-8",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
