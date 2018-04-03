@@ -1,5 +1,49 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <main>
+    <h2>About the Virtual Vietnam Memorial</h2>
+    <p>
+      The Virtual Vietnam Memorial is a project to dedicate the lives of those
+      fallen in the Vietnam War.
+    </p>
+    <p>
+      After reading <i>The Things They Carried</i>, my AP English Language
+      class began a project to honor the fallen soldiers in the Vietnam War.
+
+      I immediately thought about how I'd present my soldier, but I remembered
+      an unfortunate part of the presentation process.
+    </p>
+    <p>
+      The time it takes between presentations leaves a lot of room to forget.
+      How come is it, in 2018, that sharing multimedia presentations is
+      difficult not only for the teacher, but for the student?
+
+      Yes, there's <a href="https://www.youtube.com" target="_blank">YouTube</a>,
+      but not everyone wishes to upload their school projects to YouTube. Many
+      students and teachers would rather have students bring in a flash drive
+      anyway.
+    </p>
+    <p>
+      And what about after the presentations? Are they lost forever? Why can't
+      they be preserved for those well beyond our presentation days.
+    </p>
+    <p>
+      Then came this idea a few minutes later: the idea of a virtual memorial.
+      In this virtual memorial, students could upload their videos to a trusted
+      site anyone could use for more than just a single presentation.
+    </p>
+    <p>I went ahead and built this in a day because, as Tim O'Brien said:</p>
+    <blockquote>
+      In a story, miracles can happen.
+    </blockquote>
+    <p>
+      And in this case, I intend to preserve the stories of the fallen in a
+      manner in which I know how.
+    </p>
+  </main>
 </template>
+
+<style>
+blockquote {
+  /* TODO: Style blockquote differently */
+}
+</style>
