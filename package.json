@@ -1,8 +1,14 @@
 {
-  "name": "virtual-vietnam-project",
+  "name": "virtual-vietnam-memorial",
   "version": "0.1.0",
+  "description": "A website to honor those fallen in the Vietnam War.",
+  "author": {
+    "name": "Willie Chalmers III",
+    "email": "willieechalmers@gmail.com"
+  },
   "private": true,
   "scripts": {
+    "start": "npm run serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
