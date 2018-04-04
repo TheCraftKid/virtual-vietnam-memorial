@@ -12,12 +12,12 @@ Vue.use(VueMaterial);
 Vue.config.productionTip = false;
 
 firebase.initializeApp({
-  apiKey: 'AIzaSyC3KJEOaHk4qoRYBMrPt6wtUv4uq6ttV50',
-  authDomain: 'willie-personal-projects.firebaseapp.com',
-  databaseURL: 'https://willie-personal-projects.firebaseio.com',
-  projectId: 'willie-personal-projects',
-  storageBucket: 'virtual-vietnam-memorial',
-  messagingSenderId: '1050896936846',
+  apiKey: 'AIzaSyAJQsK-E1x0V_NUdqGMczyA50FjfiveBIc',
+  authDomain: 'virtual-vietnam-memorial.firebaseapp.com',
+  databaseURL: 'https://virtual-vietnam-memorial.firebaseio.com',
+  projectId: 'virtual-vietnam-memorial',
+  storageBucket: 'virtual-vietnam-memorial.appspot.com',
+  messagingSenderId: '630952775823',
 });
 
 new Vue({
