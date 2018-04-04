@@ -14,7 +14,7 @@
         </md-tabs>
       </div>
       <md-button class="md-fab md-accent" v-on:click="startUploadFlow" v-if="onHomeScreen">
-        <md-icon>add</md-icon>
+        <md-icon>file_upload</md-icon>
       </md-button>
     </md-app-toolbar>
     <md-app-content>
