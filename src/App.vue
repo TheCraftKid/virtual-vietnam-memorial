@@ -10,7 +10,7 @@
       <div class="md-toolbar-row" v-if="onHomeScreen && periods.length > 0">
         <md-tabs class="md-primary" md-sync-route>
           <md-tab v-for="period in periods" :key="period" :to="'/period/' + period"
-          :md-label="'Period ' + period" ></md-tab>
+              :md-label="'Period ' + period" ></md-tab>
         </md-tabs>
       </div>
       <md-button class="md-fab md-accent" v-on:click="startUploadFlow" v-if="onHomeScreen">
@@ -23,6 +23,8 @@
   </md-app>
 </template>
 <script>
+import { fetchClasses } from './scripts/presentationManager';
+
 export default {
   name: 'memorial-app',
   data() {
@@ -32,7 +34,8 @@ export default {
   },
   computed: {
     toolbarClasses() {
-      return `md-primary md-dense ${this.onHomeScreen ? 'md-large' : ''}`;
+      return `md-primary md-dense ${this.onHomeScreen ? 'md-large' : ''}
+              ${this.onPresentationScreen ? 'presentation-mode' : ''}`;
     },
     appTitle() {
       switch (this.$route.name) {
@@ -51,6 +54,9 @@ export default {
     onHomeScreen() {
       return this.$route.name === 'home' || this.$route.name === 'home-period';
     },
+    onPresentationScreen() {
+      return this.$route.name === 'present';
+    },
   },
   methods: {
     navigateBack() {
@@ -61,6 +67,18 @@ export default {
         name: 'upload',
       });
     },
+    fetchPeriods() {
+      return fetchClasses()
+        .then((classes) => {
+          this.periods = classes.splice(0);
+        })
+        .catch((err) => {
+          console.error('Could not fetch classes', err);
+        });
+    },
+  },
+  mounted() {
+    this.fetchPeriods();
   },
 };
 </script>
@@ -79,5 +97,9 @@ export default {
   position: absolute;
   bottom: -28px;
   right: 40px;
+}
+
+.presntation-mode {
+  background: transparent;
 }
 </style>
