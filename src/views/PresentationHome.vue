@@ -36,6 +36,7 @@ export default {
     fetchPresentations() {
       return getPresentations(this.classPeriod)
         .then((presentations) => {
+          console.log('Presentations loaded.');
           this.presentations = presentations.slice(0);
         })
         .catch((err) => {
