@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="grid" v-if="classPeriod">
+    <div class="grid" v-if="loaded">
       <div class="items">
         <div class="grid-item" v-for="presentation in presentations" :key="presentation.id">
           <img :src="presentation.thumbnail" :alt="'Presentation for ' + presentation.name">
@@ -10,8 +10,8 @@
         </div>
       </div>
     </div>
-    <div v-else>
-      <div class="loading-box">
+    <div class="loading-box" v-else>
+      <div style="display: block;">
         <md-progress-spinner class="md-accent" md-mode="indeterminate"></md-progress-spinner>
         <span class="md-subheader">Loading presentations...</span>
       </div>
@@ -30,6 +30,7 @@ export default {
   data() {
     return {
       presentations: [],
+      loaded: false,
     };
   },
   methods: {
@@ -38,6 +39,7 @@ export default {
         .then((presentations) => {
           console.log('Presentations loaded.');
           this.presentations = presentations.slice(0);
+          this.loaded = true;
         })
         .catch((err) => {
           console.error('Could not display all presentations', err);
@@ -81,5 +83,12 @@ export default {
 .grid-item {
   height: 128px;
   margin: 8px;
+}
+
+.loading-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
 }
 </style>
