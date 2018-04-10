@@ -28,7 +28,8 @@
             <p>
               After reading <i>The Things They Carried</i> by O'Brien, a class in Schertz, TX
               started a project to honor a serviceman from the Vietnam Memorial wall. Each student
-              would choose someone off the wall, study him, and then
+              would choose someone off the wall, study him, and then make a video dedicating his
+              life.
             </p>
             <p>
               This website is a place to honor and uphold those Americans who had no choice in
@@ -44,16 +45,22 @@
       </div>
     </section>
     <section id="callToAction">
-      <div class="wrapper">
-        <p>We're currently open for students to upload their video projects.</p>
-        <md-button class="md-primary" v-on:click="startUpload">Upload your project</md-button>
+      <div class="wrapper-main">
+        <div class="wrapper">
+          <p>We're currently open for students to upload their video projects.</p>
+          <md-button class="md-primary" v-on:click="startUpload">Upload your project</md-button>
+        </div>
+        <div class="wrapper">
+          <p>Or just watch others' videos:</p>
+          <md-button to="/period">View presentations</md-button>
+        </div>
       </div>
     </section>
   </main>
 </template>
 
 <script>
-import { fetchThumbnails } from '../scripts/splashPage';
+import { fetchThumbnails as getThumbnails } from '../scripts/splashPage';
 
 export default {
   name: 'splash-page',
@@ -64,7 +71,13 @@ export default {
   },
   methods: {
     fetchThumbnails() {
-
+      getThumbnails()
+        .then((thumbnails) => {
+          console.log('Video thumbnails successfully fetched');
+        })
+        .catch((err) => {
+          console.error('Could not get thumbnails', err);
+        });
     },
     startUpload() {
       this.$router.push({
@@ -173,6 +186,11 @@ section#callToAction {
     .wrapper {
       text-align: center;
     }
+  }
+
+  .wrapper-main {
+    display: block;
+    text-align: center;
   }
 }
 </style>
