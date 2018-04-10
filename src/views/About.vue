@@ -52,11 +52,11 @@
         </p>
       </md-card>
     </div>
-    <img class="background"
+    <!-- <img class="background"
         srcset="@/assets/the_wall_background_512px.jpg 512px,
                 @/assets/the_wall_background_2048px.jpg 2048px"
         src="@/assets/the_wall_background_512px.jpg"
-        alt="The Vietnam War Memorial in Washington DC">
+        alt="The Vietnam War Memorial in Washington DC"> -->
   </main>
 </template>
 
