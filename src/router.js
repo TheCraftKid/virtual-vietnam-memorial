@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import SplashPage from './views/SplashPage.vue';
 import PresentationHome from './views/PresentationHome.vue';
 import PresentationView from './views/PresentationView.vue';
 import UploadScreen from './views/UploadScreen.vue';
@@ -12,6 +13,11 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'splash',
+      component: SplashPage,
+    },
+    {
+      path: '/period',
       name: 'home',
       component: PresentationHome,
     },
