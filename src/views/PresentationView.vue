@@ -1,7 +1,9 @@
 <template>
   <main>
     <video :src="presentation.url" preload>
-      <p>Your browser does not support video. <a :href="presentation.url">Here</a> is a direct link.</p>
+      <p>Your browser does not support video.
+        <a :href="presentation.url">Here</a> is a direct link.
+      </p>
     </video>
     <div class="controls">
 
@@ -15,11 +17,22 @@
 <script>
 import * as firebase from 'firebase';
 
-function refetchPresentation(presenationId) {
+function refetchPresentation(presentationId, attempt) {
+  if (attempt > 3) {
+    console.warn('Attempt 3 to fetch metadata failed');
+    // TODO: Show error
+    return null;
+  }
+  return firebase.firestore().doc(`/presentations/${presentationId}`).get();
 }
 
-function refetchMetadata(presenationId) {
-
+function refetchMetadata(presentationId, attempt) {
+  if (attempt > 3) {
+    console.warn('Attempt 3 to fetch metadata failed');
+    // TODO: Show error
+    return null;
+  }
+  return firebase.firestore().doc(`/presentations/${presentationId}`).get();
 }
 
 export default {
@@ -38,13 +51,14 @@ export default {
       return presentationRef.getDownloadURL()
         .then((downloadUrl) => {
           this.presentation.url = downloadUrl;
+          let attempt = 0;
           return presentationRef.getMetadata()
             .then((metadata) => {
-              
-            })
-            .catch((err) => {
+              console.log('Presentation metadata:', metadata);
+            }).catch((err) => {
               console.error('Error when fetching presentation metadata', err);
-              return refetchMetadata(this.presentationId);
+              attempt += 1;
+              return refetchMetadata(this.presentationId, attempt);
             });
         })
         .catch((err) => {
