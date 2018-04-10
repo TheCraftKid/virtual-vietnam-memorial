@@ -34,7 +34,7 @@ export default {
   },
   computed: {
     toolbarClasses() {
-      return `md-primary md-dense ${this.onHomeScreen ? 'md-large' : ''}
+      return `md-primary md-dense ${this.onHomeScreen && this.periods.length > 0 ? 'md-large' : ''}
               ${this.onPresentationScreen ? 'presentation-mode' : ''}`;
     },
     appTitle() {
