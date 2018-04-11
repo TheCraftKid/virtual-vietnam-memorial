@@ -128,7 +128,7 @@ section#marquee {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  height: 100vh;
+  height: 66vh;
   background: url('/img/otherassets/the_wall_background_512px.jpg');
   background-size: cover;
   color: #FAFAFA;
