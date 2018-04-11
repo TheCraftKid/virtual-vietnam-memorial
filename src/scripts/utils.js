@@ -18,7 +18,12 @@ export function checkForFirebase() {
  * @return {String} A pseduo-random globally unique identifier
  */
 export function generateUUID() {
-  return Math.floor((Math.random() + 1) * 0x10000)
-    .toString(16)
-    .substring(1);
+  const parts = [];
+  for (let i = 0; i < 4; (i += 1)) {
+    const random = Math.floor((Math.random() + 1) * 0x10000)
+      .toString(16)
+      .substring(1);
+    parts.push(random);
+  }
+  return parts.reduce((accumulator, part) => `${accumulator}-${part}`);
 }
